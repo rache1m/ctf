@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> 
+    <title>CTF</title>
+    <script>
+        // Function to get a cookie by name
+        function getCookie(name) {
+            const cookies = document.cookie.split("; ");
+            for (let cookie of cookies) {
+                const [key, value] = cookie.split("=");
+                if (key === name) {
+                    return value;
+                }
+            }
+            return null;
+        }
+
+        // Function to monitor the cookie for manual changes
+        function monitorCookieChange() {
+            const cookieName = "MyCookie";
+            let previousValue = getCookie(cookieName);
+
+            setInterval(() => {
+                const currentValue = getCookie(cookieName);
+
+                // If the value changes to 1, display the secret message
+                if (currentValue === "1" && previousValue !== "1") {
+                    document.getElementById("secret-message").style.display = "block";
+                    console.log("Secret message revealed!");
+                } else if (currentValue !== "1") {
+                    document.getElementById("secret-message").style.display = "none";
+                }
+
+                // Update the previous value for tracking
+                previousValue = currentValue;
+            }, 1000); // Check every second
+        }
+
+        // Set the initial cookie value
+        window.onload = function() {
+            // Set the cookie to "0" only if it doesn't already exist
+            if (!getCookie("MyCookie")) {
+                document.cookie = "MyCookie=0; path=/;";
+            }
+
+            // Start monitoring the cookie for changes
+            monitorCookieChange();
+        };
+    </script>
+</head>
+<body class="background">
+    <h3 id="secret-message" style="display: none; color: red; font-weight: bold;">
+        www.aperisolve.com
+    </h3>
+</body>
+</html>

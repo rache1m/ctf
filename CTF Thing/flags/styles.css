@@ -1,0 +1,70 @@
+.background {
+    background-image: url(background2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;   
+    }
+
+
+  /*h1 {
+    color: white;
+    text-align: center;
+    font-size: 100px;
+    }*/
+
+
+    h1{
+      padding: 0;
+      margin: 0;
+      background-image: url(background1.jpg);
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      justify-content:center ;
+      align-items: center;
+      font-family: Helvetica, Arial, sans-serif;
+      color: black;
+      font-size: 60px;
+      font-weight: 400;
+      text-align: center;
+  }
+
+  h2{
+    text-indent: 20px;
+    font-size: 40px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color: black;
+    margin-bottom: 10px;
+  }
+
+  h3{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px; /* Space between items */
+    padding: 50px; /* Optional padding for the grid */
+}
+
+/* Style for the images */
+.grid-container img {
+    width: 100%; /* Make the image fit the grid cell */
+    height: 100%; /* Maintain the aspect ratio */
+    border-radius: 8px; /* Optional: rounded corners */
+}
