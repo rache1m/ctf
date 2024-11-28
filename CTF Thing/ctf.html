@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
     <head>
         <title>CTF</title> 
@@ -103,4 +103,83 @@
             
         </div>
     </body>
+</html>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CTF</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+        .grid-container img {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flags of the World</h1>
+    <h2>Click to learn more!</h2>
+    <div class="grid-container"></div>
+
+    <script>
+        // Array of flag image paths and their corresponding encoded links
+        const flagLinks = [
+            { src: "flags/afghanistan.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/albania.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/algeria.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/andorra.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/angola.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/antigua and barbuda.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/argentina.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/armenia.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/australia.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/austria.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/azerbaijan.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/bahamas.webp", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/bahrain.webp", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/bangladesh.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/barbados.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/belarus.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/belgium.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/belize.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/benin.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/bhutan.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/bolivia.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/bosnia and herzegovina.webp", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/botswana.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/brazil.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/brunei.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/bulgaria.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/burkina faso.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/burundi.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/cabo verde.jpg", encoded: btoa("flags/zunflag.html") },
+            { src: "flags/capture the flag.jpg", encoded: btoa("flags/zzflag.html") }, // Target flag
+        ];
+
+        // Dynamically generate the flags grid
+        const container = document.querySelector('.grid-container');
+        flagLinks.forEach(flag => {
+            const a = document.createElement('a');
+            a.href = "#"; // Prevent default linking
+            a.dataset.encoded = flag.encoded; // Store encoded link
+            const img = document.createElement('img');
+            img.src = flag.src;
+            a.appendChild(img);
+
+            // Decode and navigate on click
+            a.addEventListener('click', (event) => {
+                event.preventDefault();
+                const decodedLink = atob(a.dataset.encoded); // Decode link
+                window.location.href = decodedLink; // Navigate to decoded link
+            });
+
+            container.appendChild(a);
+        });
+    </script>
+</body>
 </html>
