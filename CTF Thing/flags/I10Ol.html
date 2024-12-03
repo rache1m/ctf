@@ -42,9 +42,7 @@
         // Set the initial cookie value
         window.onload = function() {
             // Set the cookie to "0" only if it doesn't already exist
-            if (!getCookie("MyCookie")) {
-                document.cookie = "MyCookie=0; path=/;";
-            }
+            document.cookie = "MyCookie=0; path=/;";
 
             // Start monitoring the cookie for changes
             monitorCookieChange();
