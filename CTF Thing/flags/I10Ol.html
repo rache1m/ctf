@@ -28,10 +28,10 @@
 
                 // If the value changes to 1, display the secret message
                 if (currentValue === "1" && previousValue !== "1") {
-                    document.getElementById("secret-message").style.display = "block";
-                    console.log("Secret message revealed!");
+                    document.getElementById("text").style.display = "block";
+                    console.log("Text is shown");
                 } else if (currentValue !== "1") {
-                    document.getElementById("secret-message").style.display = "none";
+                    document.getElementById("text").style.display = "none";
                 }
 
                 // Update the previous value for tracking
@@ -52,8 +52,9 @@
     </script>
 </head>
 <body class="background">
-    <h3 id="secret-message" style="display: none; color: red; font-weight: bold;">
+    <h3 id="text" style="display: none; color: red; font-weight: bold;">
         www.aperisolve.com
+        (Steghide)
     </h3>
 </body>
 </html>
